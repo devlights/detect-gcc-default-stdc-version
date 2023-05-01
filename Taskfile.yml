@@ -1,0 +1,16 @@
+version: '3'
+
+tasks:
+  normal-way:
+    desc: Normal way (with source code)
+    cmds:
+      - gcc --version
+      - gcc -o app main.c
+      - ./app
+      - rm ./app
+  cmd-only:
+    desc: Command only (no source code)
+    cmds:
+      - cmd: echo '# https://mikoto2000.blogspot.com/2020/08/gcc-std.html'
+        silent: true
+      - echo | gcc -dM -E - | grep STDC_V
